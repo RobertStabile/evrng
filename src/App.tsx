@@ -149,11 +149,6 @@ const MOCK_PRODUCTS: { [key: string]: ProductData } = {
 };
 
 
-
-
-
-
-
 // ============================================================================
 // CARBON GAUGE - Speedometer Visualization
 // ============================================================================
@@ -161,7 +156,6 @@ const MOCK_PRODUCTS: { [key: string]: ProductData } = {
 function CarbonGauge({ produced, offset }: { produced: number; offset: number }) {
   const percentage = offset > 0 ? Math.round((offset / produced) * 100) : 0;
   const net = offset - produced;
-
   // Calculate needle rotation (0% = -90deg, 100% = 0deg, 200% = 90deg)
   const needleRotation = -90 + (percentage * 0.9); // 0.9 degrees per percent (180 degrees total)
 
@@ -169,11 +163,12 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
     <div className="w-full space-y-4">
       {/* Gauge Container */}
       <div className="flex justify-center">
-        <div className="relative w-full max-w-80 h-44">
-          <svg viewBox="-35 0 270 130" className="w-full h-full">
+        <div className="relative w-full max-w-[340px] h-44">
+          <svg viewBox="-8 0 220 130" className="w-full h-full">
+
             {/* Background arc (gray) */}
             <path
-              d="M 20 110 A 80 80 0 0 1 180 110"
+              d="M 30 110 A 70 70 0 0 1 170 110"
               fill="none"
               stroke="currentColor"
               strokeWidth="20"
@@ -183,7 +178,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* Progress arc - First half (0-100%) dark green to light green */}
             <path
-              d="M 20 110 A 80 80 0 0 1 100 30"
+              d="M 30 110 A 70 70 0 0 1 100 40"
               fill="none"
               stroke="url(#greenGradient)"
               strokeWidth="20"
@@ -192,7 +187,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* Progress arc - Second half (100-200%) light green to gold */}
             <path
-              d="M 100 30 A 80 80 0 0 1 180 110"
+              d="M 100 40 A 70 70 0 0 1 170 110"
               fill="none"
               stroke="url(#goldGradient)"
               strokeWidth="20"
@@ -213,16 +208,16 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* Tick marks - all white */}
             {/* 0% mark - left side */}
-            <line x1="20" y1="110" x2="10" y2="110" stroke="white" strokeWidth="3" />
-            <text x="-5" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">0%</text>
+            <line x1="30" y1="110" x2="18" y2="110" stroke="white" strokeWidth="3" />
+            <text x="5" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">0%</text>
 
             {/* 100% mark - top */}
-            <line x1="100" y1="30" x2="100" y2="20" stroke="white" strokeWidth="3" />
-            <text x="100" y="15" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">100%</text>
+            <line x1="100" y1="40" x2="100" y2="30" stroke="white" strokeWidth="3" />
+            <text x="100" y="25" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">100%</text>
 
             {/* 200% mark - right side */}
-            <line x1="180" y1="110" x2="190" y2="110" stroke="white" strokeWidth="3" />
-            <text x="215" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200%</text>
+            <line x1="170" y1="110" x2="185" y2="110" stroke="white" strokeWidth="3" />
+            <text x="205" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200%</text>
 
             {/* Needle */}
             <g transform={`rotate(${needleRotation} 100 110)`}>
@@ -230,7 +225,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
                 x1="100"
                 y1="110"
                 x2="100"
-                y2="45"
+                y2="50"
                 stroke="currentColor"
                 strokeWidth="3"
                 strokeLinecap="round"
