@@ -169,7 +169,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
     <div className="w-full space-y-4">
       {/* Gauge Container */}
       <div className="flex justify-center">
-        <div className="relative w-100 h-44">
+        <div className="relative w-full max-w-80 h-44">
           <svg viewBox="-35 0 270 130" className="w-full h-full">
             {/* Background arc (gray) */}
             <path
