@@ -504,7 +504,7 @@ export default function App() {
             </p>
             <p className="text-xs leading-snug font-semibold text-money-700 dark:text-money-300 flex items-start gap-1">
               <span className="w-1.5 h-1.5 mt-1 rounded-full bg-money-500 animate-pulse" />
-              <span>Choosing these brownies helps neutralize the same amount of carbon as charging your phone 30 times</span>
+              <span>Choosing these brownies helps neutralize approximately the same amount of carbon required to charge your phone 30 times</span>
             </p>
           </div>
 
