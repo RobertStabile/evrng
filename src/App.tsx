@@ -250,20 +250,20 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
       </div>
 
       {/* Stats row */}
-      <div className="flex items-center justify-center gap-4 text-xs">
-        <div className="flex flex-col items-center px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-          <span className="text-slate-600 dark:text-slate-400 uppercase tracking-wide font-medium">Produced</span>
-          <span className="text-lg font-bold text-slate-700 dark:text-slate-200">{produced}g</span>
+      <div className="flex items-center justify-center gap-2 text-xs">
+        <div className="flex flex-col items-center px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <span className="text-slate-600 dark:text-slate-400 uppercase tracking-wide font-medium text-[10px]">Produced</span>
+          <span className="text-base font-bold text-slate-700 dark:text-slate-200">{produced}g</span>
         </div>
 
-        <div className="flex flex-col items-center px-4 py-2 rounded-lg bg-money-50 dark:bg-money-500/10 border border-money-400/40 dark:border-money-500/40">
-          <span className="text-money-700 dark:text-money-300 uppercase tracking-wide font-medium">Offset</span>
-          <span className="text-lg font-bold text-money-700 dark:text-money-300">{offset}g</span>
+        <div className="flex flex-col items-center px-3 py-2 rounded-lg bg-money-50 dark:bg-money-500/10 border border-money-400/40 dark:border-money-500/40">
+          <span className="text-money-700 dark:text-money-300 uppercase tracking-wide font-medium text-[10px]">Offset</span>
+          <span className="text-base font-bold text-money-700 dark:text-money-300">{offset}g</span>
         </div>
 
-        <div className="flex flex-col items-center px-4 py-2 rounded-lg bg-gold-500 dark:bg-gold-600 border border-gold-600 dark:border-gold-700 text-white">
-          <span className="uppercase tracking-wide font-medium opacity-90">Net</span>
-          <span className="text-lg font-bold">+{net}g</span>
+        <div className="flex flex-col items-center px-3 py-2 rounded-lg bg-gold-500 dark:bg-gold-600 border border-gold-600 dark:border-gold-700 text-white">
+          <span className="uppercase tracking-wide font-medium opacity-90 text-[10px]">Net</span>
+          <span className="text-base font-bold">+{net}g</span>
         </div>
       </div>
 
@@ -486,7 +486,7 @@ export default function App() {
         </div>
 
         {/* Carbon Compensation */}
-        <div className="rounded-3xl border border-olive-400/50 dark:border-olive-600/30 bg-gradient-to-br from-white via-olive-50/60 to-cream-100 dark:from-slate-900 dark:via-evergreen-900/15 dark:to-slate-900 p-6 space-y-5 overflow-x-hidden">
+        <div className="rounded-3xl border border-olive-400/50 dark:border-olive-600/30 bg-gradient-to-br from-white via-olive-50/60 to-cream-100 dark:from-slate-900 dark:via-evergreen-900/15 dark:to-slate-900 p-6 space-y-5">
           <div className="flex items-center gap-2">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-evergreen-700 dark:text-olive-300">
               Carbon compensation
