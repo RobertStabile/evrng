@@ -222,7 +222,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* 200 mark - right side */}
             <line x1="165" y1="110" x2="175" y2="110" stroke="white" strokeWidth="3" />
-            <text x="198" y="113" textAnchor="end" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200</text>
+            <text x="205" y="113" textAnchor="end" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200</text>
 
             {/* Needle */}
             <g transform={`rotate(${needleRotation} 100 110)`}>
