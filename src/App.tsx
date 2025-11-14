@@ -163,12 +163,12 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
     <div className="w-full space-y-4">
       {/* Gauge Container */}
       <div className="flex justify-center">
-        <div className="relative w-full max-w-[340px] h-44">
-          <svg viewBox="-8 0 220 130" className="w-full h-full">
+        <div className="relative w-full max-w-80 h-44">
+          <svg viewBox="0 0 200 130" className="w-full h-full">
 
             {/* Background arc (gray) */}
             <path
-              d="M 30 110 A 70 70 0 0 1 170 110"
+              d="M 35 110 A 65 65 0 0 1 165 110"
               fill="none"
               stroke="currentColor"
               strokeWidth="20"
@@ -178,7 +178,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* Progress arc - First half (0-100%) dark green to light green */}
             <path
-              d="M 30 110 A 70 70 0 0 1 100 40"
+              d="M 35 110 A 65 65 0 0 1 100 45"
               fill="none"
               stroke="url(#greenGradient)"
               strokeWidth="20"
@@ -187,7 +187,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
 
             {/* Progress arc - Second half (100-200%) light green to gold */}
             <path
-              d="M 100 40 A 70 70 0 0 1 170 110"
+              d="M 100 45 A 65 65 0 0 1 165 110"
               fill="none"
               stroke="url(#goldGradient)"
               strokeWidth="20"
@@ -206,18 +206,23 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
               </linearGradient>
             </defs>
 
+            {/* Center % symbol */}
+            <text x="100" y="95" textAnchor="middle" className="text-4xl fill-slate-400 dark:fill-slate-500 font-light opacity-30">
+              %
+            </text>
+
             {/* Tick marks - all white */}
-            {/* 0% mark - left side */}
-            <line x1="30" y1="110" x2="18" y2="110" stroke="white" strokeWidth="3" />
-            <text x="5" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">0%</text>
+            {/* 0 mark - left side */}
+            <line x1="35" y1="110" x2="25" y2="110" stroke="white" strokeWidth="3" />
+            <text x="15" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">0</text>
 
-            {/* 100% mark - top */}
-            <line x1="100" y1="40" x2="100" y2="30" stroke="white" strokeWidth="3" />
-            <text x="100" y="25" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">100%</text>
+            {/* 100 mark - top */}
+            <line x1="100" y1="45" x2="100" y2="35" stroke="white" strokeWidth="3" />
+            <text x="100" y="30" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">100</text>
 
-            {/* 200% mark - right side */}
-            <line x1="170" y1="110" x2="185" y2="110" stroke="white" strokeWidth="3" />
-            <text x="205" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200%</text>
+            {/* 200 mark - right side */}
+            <line x1="165" y1="110" x2="175" y2="110" stroke="white" strokeWidth="3" />
+            <text x="192" y="113" textAnchor="middle" className="text-sm fill-slate-600 dark:fill-slate-400 font-semibold">200</text>
 
             {/* Needle */}
             <g transform={`rotate(${needleRotation} 100 110)`}>
