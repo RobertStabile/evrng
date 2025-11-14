@@ -365,7 +365,7 @@ export default function App() {
 
   const produced = productData.carbon_produced_g;
   const offset = productData.carbon_offset_g;
-  const net = offset - produced;
+
 
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 dark:bg-slate-950">
