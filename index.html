@@ -1,51 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FullTrust - Brownie Verification</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              emerald: {
-                50: '#ecfdf5',
-                100: '#d1fae5',
-                200: '#a7f3d0',
-                300: '#6ee7b7',
-                400: '#34d399',
-                500: '#10b981',
-                600: '#059669',
-                700: '#047857',
-                800: '#065f46',
-                900: '#064e3b',
-              }
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Evergreen Exchange & Mjay's Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Evergreen Exchange Colors
+            evergreen: {
+              700: '#2F5233',
+              800: '#1E3A21',
+              900: '#0F1D10',
+            },
+            olive: {
+              100: '#E8ECDE',
+              200: '#D4DBBD',
+              300: '#C1CA9D',
+              400: '#AFC17F',
+              500: '#9DB862',
+              600: '#7A9348',
+              700: '#5A6D35',
+              800: '#3D4923',
+              900: '#212713',
+            },
+            money: {
+              300: '#A8D08D',
+              400: '#8BC572',
+              500: '#6FB858',
+              600: '#5A9647',
+              700: '#447136',
+              800: '#2F4D25',
+              900: '#1C2D16',
+            },
+            gold: {
+              400: '#D9A635',  // lighter antique gold
+              500: '#C69214',  // Pantone 1245 C - your brand color
+              600: '#A67A11',  // darker
+              700: '#86620D',  // even darker for dark mode hover
+              800: '#664A0A',
+              900: '#463306',
+            },
+            cream: {
+              100: '#F5F2E2',
+              200: '#EBE6C5',
+              300: '#E1DAA9',
+            },
+          },
+          boxShadow: {
+            'evergreen': '0 4px 6px -1px rgba(47, 82, 51, 0.1), 0 2px 4px -1px rgba(47, 82, 51, 0.06)',
+            'evergreen-lg': '0 10px 15px -3px rgba(47, 82, 51, 0.1), 0 4px 6px -2px rgba(47, 82, 51, 0.05)',
+            'evergreen-xl': '0 20px 25px -5px rgba(47, 82, 51, 0.1), 0 10px 10px -5px rgba(47, 82, 51, 0.04)',
           }
         }
       }
-    </script>
-    <style>
-      @keyframes spin {
-        to { transform: rotate(360deg); }
+    }
+  </script>
+  <style>
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
       }
-      .animate-spin {
-        animation: spin 1s linear infinite;
+    }
+
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
       }
-      .animate-pulse {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+      50% {
+        opacity: .5;
       }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: .5; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
