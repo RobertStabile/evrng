@@ -230,7 +230,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
                 x1="100"
                 y1="110"
                 x2="100"
-                y2="50"
+                y2="65"
                 stroke="currentColor"
                 strokeWidth="3"
                 strokeLinecap="round"
