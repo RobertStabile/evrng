@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, TreePine, Sun, Moon, Fingerprint } from 'lucide-react';
+import { Share2, TreePine, Sun, Moon, Fingerprint, ShieldCheck } from 'lucide-react';
 
 // Type definitions
 interface Product {
@@ -425,7 +425,9 @@ export default function App() {
             <div className="rounded-xl bg-evergreen-700 dark:bg-evergreen-800 border border-evergreen-600 p-4">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">✓</span>
+                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-white flex-shrink-0">
+                    <ShieldCheck className="w-5 h-5 text-evergreen-700" />
+                  </div>
                   <p className="text-sm font-semibold text-white">
                     Authenticity Confirmed. Carbon Validated.
                   </p>
