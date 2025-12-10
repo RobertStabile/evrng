@@ -470,12 +470,8 @@ export default function App() {
             {/* Security Details */}
             <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="text-slate-400 dark:text-slate-500">ASY Secure Code:</span>
+                <span className="text-slate-400 dark:text-slate-500">Security Code:</span>
                 <span className="font-mono text-slate-700 dark:text-slate-300">244592341-48897602</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 dark:text-slate-500">Serial Number:</span>
-                <span className="font-mono text-slate-700 dark:text-slate-300">A1-24459234 B</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-slate-400 dark:text-slate-500">First Scan Recorded:</span>
