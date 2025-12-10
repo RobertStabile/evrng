@@ -382,10 +382,10 @@ export default function App() {
           <div className="flex items-center gap-2 flex-1">
             <div className="flex flex-col">
               <h1 className="text-base font-bold text-evergreen-700 dark:text-cream-200">
-                MJ Bakery
+                Sustainability Verification Portal
               </h1>
               <p className="text-xs text-slate-600 dark:text-slate-400">
-                The Evergreen Exchange
+                Certified by The Evergreen Exchange
               </p>
             </div>
           </div>
@@ -511,7 +511,7 @@ export default function App() {
             </p>
             <p className="text-xs leading-snug font-semibold text-money-700 dark:text-money-300 flex items-start gap-1">
               <span className="w-1.5 h-1.5 mt-1 rounded-full bg-money-500 animate-pulse" />
-              <span>Choosing these brownies helps offset approximately the same amount of carbon required to charge your phone 30 times</span>
+              <span>Choosing this product offsets approximately the equivalent of charging your phone 30 times</span>
             </p>
           </div>
 
