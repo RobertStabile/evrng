@@ -88,7 +88,7 @@ const MOCK_PRODUCTS: { [key: string]: ProductData } = {
     ok: true,
     product: {
       name: "Gourmet Brownies (MJAY's Bakery)",
-      desc: 'Artisan brownies made with fair-trade cocoa, organic ingredients, and lots of love. Certified carbon neutral.',
+      desc: 'Artisan brownies made with fair-trade cocoa, organic ingredients, and lots of love. Evergreen Certified.',
       image: 'brownies-landscape.png',
     },
     uuid: '550e8400-e29b-41d4-a716',
@@ -280,7 +280,7 @@ function CarbonGauge({ produced, offset }: { produced: number; offset: number })
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
-          100% CO₂ NEUTRAL
+          100% COMPENSATED
         </div>
       </div>
     </div>
@@ -511,7 +511,7 @@ export default function App() {
             </p>
             <p className="text-xs leading-snug font-semibold text-money-700 dark:text-money-300 flex items-start gap-1">
               <span className="w-1.5 h-1.5 mt-1 rounded-full bg-money-500 animate-pulse" />
-              <span>Choosing these brownies helps neutralize approximately the same amount of carbon required to charge your phone 30 times</span>
+              <span>Choosing these brownies helps offset approximately the same amount of carbon required to charge your phone 30 times</span>
             </p>
           </div>
 
