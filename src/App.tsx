@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, TreePine, QrCode, Sun, Moon } from 'lucide-react';
+import { Share2, TreePine, Sun, Moon, Fingerprint } from 'lucide-react';
 
 // Type definitions
 interface Product {
@@ -417,44 +417,21 @@ export default function App() {
           {/* ID Card */}
           <div className="rounded-3xl border border-olive-400/20 dark:border-olive-600/20 bg-white/90 dark:bg-white/5 backdrop-blur p-4 space-y-3">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              <QrCode className="w-3 h-3" />
-              Anti Counterfeit Identifier
-            </div>
-
-            <div className="text-sm font-mono break-all text-slate-800 dark:text-slate-200">
-              {productData.uuid}
+              <Fingerprint className="w-3.5 h-3.5" />
+              Authenticity Fingerprint
             </div>
 
             {/* Verification Confirmation Box */}
-            <div className={`rounded-xl ${(productData.scanCount || 1) === 1
-              ? 'bg-evergreen-700 dark:bg-evergreen-800 border-evergreen-600'
-              : 'bg-gold-600 dark:bg-gold-700 border-gold-500'
-              } border p-4`}>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-start gap-2">
-                    <span className="text-lg">{(productData.scanCount || 1) === 1 ? '🎉' : '✅'}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        {(productData.scanCount || 1) === 1
-                          ? 'Congratulations, carbon claimed!'
-                          : `This credit was already verified at ${new Date().toLocaleString()}`
-                        }
-                      </p>
-                      <p className="text-xs text-cream-100 dark:text-cream-200 mt-1">
-                        {(productData.scanCount || 1) === 1
-                          ? new Date().toLocaleString()
-                          : `Scanned ${productData.scanCount} times`
-                        }
-                      </p>
-                    </div>
-                  </div>
+            <div className="rounded-xl bg-evergreen-700 dark:bg-evergreen-800 border border-evergreen-600 p-4">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✓</span>
+                  <p className="text-sm font-semibold text-white">
+                    Authenticity Confirmed. Carbon Validated.
+                  </p>
                 </div>
 
-                <div className={`flex flex-col items-center justify-center px-3 py-2 rounded-lg border ${(productData.scanCount || 1) === 1
-                  ? 'bg-white dark:bg-cream-100 border-evergreen-600 text-evergreen-700'
-                  : 'bg-white dark:bg-cream-100 border-gold-500 text-gold-700'
-                  }`}>
+                <div className="flex flex-col items-center justify-center px-3 py-2 rounded-lg bg-white dark:bg-cream-100 border border-evergreen-600 text-evergreen-700">
                   <div className="text-xs font-semibold uppercase tracking-wide">
                     Scans
                   </div>
@@ -462,6 +439,22 @@ export default function App() {
                     {productData.scanCount || 1}
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Security Details */}
+            <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 dark:text-slate-500">ASY Secure Code:</span>
+                <span className="font-mono text-slate-700 dark:text-slate-300">2445-9234</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 dark:text-slate-500">Serial Number:</span>
+                <span className="font-mono text-slate-700 dark:text-slate-300">A1-B2339</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400 dark:text-slate-500">First Scan Recorded:</span>
+                <span className="text-slate-700 dark:text-slate-300">Dec 10, 2025 • 10:05 AM</span>
               </div>
             </div>
           </div>
