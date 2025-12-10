@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, TreePine, Sun, Moon, Fingerprint, ShieldCheck } from 'lucide-react';
+import { Share2, TreePine, Sun, Moon, Fingerprint, ShieldCheck, ShieldAlert } from 'lucide-react';
 
 // Type definitions
 interface Product {
@@ -422,18 +422,41 @@ export default function App() {
             </div>
 
             {/* Verification Confirmation Box */}
-            <div className="rounded-xl bg-evergreen-700 dark:bg-evergreen-800 border border-evergreen-600 p-4">
+            <div className={`rounded-xl border p-4 ${
+              (productData.scanCount || 1) === 1
+                ? 'bg-evergreen-700 dark:bg-evergreen-800 border-evergreen-600'
+                : 'bg-gold-600 dark:bg-gold-700 border-gold-500'
+            }`}>
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-white flex-shrink-0">
-                    <ShieldCheck className="w-5 h-5 text-evergreen-700" />
+                  <div className={`flex items-center justify-center w-7 h-7 rounded-full bg-white flex-shrink-0`}>
+                    {(productData.scanCount || 1) === 1 ? (
+                      <ShieldCheck className="w-5 h-5 text-evergreen-700" />
+                    ) : (
+                      <ShieldAlert className="w-5 h-5 text-gold-600" />
+                    )}
                   </div>
-                  <p className="text-sm font-semibold text-white">
-                    Authenticity Confirmed. Carbon Validated.
-                  </p>
+                  <div className="flex flex-col">
+                    <p className="text-sm font-semibold text-white">
+                      {(productData.scanCount || 1) === 1
+                        ? 'Authenticity Confirmed'
+                        : 'Authenticity Previously Confirmed'
+                      }
+                    </p>
+                    <p className="text-xs text-white/80">
+                      {(productData.scanCount || 1) === 1
+                        ? 'Offset Validated'
+                        : 'Offset Double Counting Prevented'
+                      }
+                    </p>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center px-3 py-2 rounded-lg bg-white dark:bg-cream-100 border border-evergreen-600 text-evergreen-700">
+                <div className={`flex flex-col items-center justify-center px-3 py-2 rounded-lg border ${
+                  (productData.scanCount || 1) === 1
+                    ? 'bg-white dark:bg-cream-100 border-evergreen-600 text-evergreen-700'
+                    : 'bg-white dark:bg-cream-100 border-gold-500 text-gold-700'
+                }`}>
                   <div className="text-xs font-semibold uppercase tracking-wide">
                     Scans
                   </div>
@@ -448,11 +471,11 @@ export default function App() {
             <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2">
                 <span className="text-slate-400 dark:text-slate-500">ASY Secure Code:</span>
-                <span className="font-mono text-slate-700 dark:text-slate-300">2445-9234</span>
+                <span className="font-mono text-slate-700 dark:text-slate-300">244592341-48897602</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-slate-400 dark:text-slate-500">Serial Number:</span>
-                <span className="font-mono text-slate-700 dark:text-slate-300">A1-B2339</span>
+                <span className="font-mono text-slate-700 dark:text-slate-300">A1-24459234 B</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-slate-400 dark:text-slate-500">First Scan Recorded:</span>
