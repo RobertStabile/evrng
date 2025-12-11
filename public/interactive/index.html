@@ -739,6 +739,20 @@
         window.addEventListener('load', () => {
             new ScratchCard('scratchCanvas', 'silver_scratch_transparent.png');
         });
+
+        // Secret keyboard shortcut for sales reps: Ctrl+Shift+V
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey && e.key === 'V') {
+                // Flash the screen briefly to confirm activation
+                document.body.style.transition = 'opacity 0.15s ease';
+                document.body.style.opacity = '0.7';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                    // Redirect to verification page
+                    window.location.href = 'https://evrgn.org';
+                }, 150);
+            }
+        });
     </script>
 </body>
 </html>
