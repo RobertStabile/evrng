@@ -377,7 +377,9 @@ export default function App() {
         
         // Toggle between 1 and 2
         setDemoScanCount(prev => {
-          const newCount = (prev === 2 || prev === null) ? 1 : 2;
+          // If prev is null, use the current productData scanCount as the starting point
+          const currentCount = prev ?? (productData?.scanCount || 1);
+          const newCount = currentCount === 2 ? 1 : 2;
           
           // Visual feedback - gold flash for scan 2, green flash for scan 1
           document.body.style.transition = 'opacity 0.15s ease, filter 0.15s ease';
