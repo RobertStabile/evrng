@@ -371,27 +371,32 @@ export default function App() {
   // Keyboard shortcut: Ctrl+Shift+2 toggles between scan count 1 and 2
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === '2') {
+      // Use e.code to detect physical key (Shift+2 makes e.key = '@')
+      if (e.ctrlKey && e.shiftKey && e.code === 'Digit2') {
         e.preventDefault();
+        
         // Toggle between 1 and 2
-        setDemoScanCount(prev => (prev === 2 ? 1 : 2));
-        
-        // Visual feedback - gold flash for scan 2, green flash for scan 1
-        const newCount = demoScanCount === 2 ? 1 : 2;
-        document.body.style.transition = 'opacity 0.15s ease, filter 0.15s ease';
-        document.body.style.opacity = '0.7';
-        document.body.style.filter = newCount === 2 ? 'sepia(0.3)' : 'hue-rotate(90deg)';
-        
-        setTimeout(() => {
-          document.body.style.opacity = '1';
-          document.body.style.filter = 'none';
-        }, 150);
+        setDemoScanCount(prev => {
+          const newCount = (prev === 2 || prev === null) ? 1 : 2;
+          
+          // Visual feedback - gold flash for scan 2, green flash for scan 1
+          document.body.style.transition = 'opacity 0.15s ease, filter 0.15s ease';
+          document.body.style.opacity = '0.7';
+          document.body.style.filter = newCount === 2 ? 'sepia(0.3)' : 'hue-rotate(90deg)';
+          
+          setTimeout(() => {
+            document.body.style.opacity = '1';
+            document.body.style.filter = 'none';
+          }, 150);
+          
+          return newCount;
+        });
       }
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [demoScanCount]);
+  }, []);
 
   // Override scanCount if demo parameter exists
   if (demoScanCount && productData) {
