@@ -368,10 +368,10 @@ export default function App() {
     }
   }, []);
 
-  // Keyboard shortcut: Ctrl+Shift+R toggles between scan count 1 and 2
+  // Keyboard shortcut: Ctrl+Shift+2 toggles between scan count 1 and 2
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+      if (e.ctrlKey && e.shiftKey && e.key === '2') {
         e.preventDefault();
         // Toggle between 1 and 2
         setDemoScanCount(prev => (prev === 2 ? 1 : 2));
