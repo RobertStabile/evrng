@@ -355,13 +355,47 @@ export default function App() {
   const uuid = '550e8400-e29b-41d4-a716';
   const productData = MOCK_PRODUCTS[uuid];
 
+  // State for demo scan count toggle (Ctrl+Shift+R)
+  const [demoScanCount, setDemoScanCount] = useState<number | null>(null);
+
   // Check URL parameter for demo scan count override
-  const urlParams = new URLSearchParams(window.location.search);
-  const demoScanCount = urlParams.get('scanCount');
-  
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlScanCount = urlParams.get('scanCount');
+    
+    if (urlScanCount) {
+      setDemoScanCount(parseInt(urlScanCount));
+    }
+  }, []);
+
+  // Keyboard shortcut: Ctrl+Shift+R toggles between scan count 1 and 2
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+        e.preventDefault();
+        // Toggle between 1 and 2
+        setDemoScanCount(prev => (prev === 2 ? 1 : 2));
+        
+        // Visual feedback - gold flash for scan 2, green flash for scan 1
+        const newCount = demoScanCount === 2 ? 1 : 2;
+        document.body.style.transition = 'opacity 0.15s ease, filter 0.15s ease';
+        document.body.style.opacity = '0.7';
+        document.body.style.filter = newCount === 2 ? 'sepia(0.3)' : 'hue-rotate(90deg)';
+        
+        setTimeout(() => {
+          document.body.style.opacity = '1';
+          document.body.style.filter = 'none';
+        }, 150);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [demoScanCount]);
+
   // Override scanCount if demo parameter exists
   if (demoScanCount && productData) {
-    productData.scanCount = parseInt(demoScanCount);
+    productData.scanCount = demoScanCount;
   }
 
   if (!productData || !productData.ok) {
