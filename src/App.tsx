@@ -355,6 +355,15 @@ export default function App() {
   const uuid = '550e8400-e29b-41d4-a716';
   const productData = MOCK_PRODUCTS[uuid];
 
+  // Check URL parameter for demo scan count override
+  const urlParams = new URLSearchParams(window.location.search);
+  const demoScanCount = urlParams.get('scanCount');
+  
+  // Override scanCount if demo parameter exists
+  if (demoScanCount && productData) {
+    productData.scanCount = parseInt(demoScanCount);
+  }
+
   if (!productData || !productData.ok) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream-200 dark:bg-slate-900">
